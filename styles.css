@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
 :root {
-   --bgColor: #333;
-   --textPrimary: #d1d0c5;
-   --textSecondary: #666;
-   --primaryColor: #fd4;
+   --bg-color: #323437;
+   --text-color: #d1d0c5;
+   --subtext-color: #646669;
+   --main-color: #e2b714;
 }
 
 body {
    font-family: 'Roboto', sans-serif;
-   background-color: var(--bgColor);
-   color: var(--textPrimary);
+   background-color: var(--bg-color);
+   color: var(--text-color);
    font-size: 1.4rem;
 }
 
@@ -19,14 +19,14 @@ main {
 }
 
 h1 {
-   color: var(--textPrimary);
+   color: var(--text-color);
    font-weight: unset;
    font-size: 2rem;
 }
 
 h1 svg {
    width: 40px;
-   fill: var(--primaryColor);
+   fill: var(--main-color);
 }
 
 #header {
@@ -40,7 +40,7 @@ h1 svg {
 }
 
 #info {
-   color: var(--primaryColor);
+   color: var(--main-color);
 }
 
 button {
@@ -65,7 +65,7 @@ div#game:focus {
 
 #words {
    filter: blur(5px);
-   color: var(--textSecondary);
+   color: var(--subtext-color);
 }
 
 #game:focus #words {
@@ -94,7 +94,7 @@ div.word {
 }
 
 .letter.incorrect {
-   color: #f55;
+   color: #ca4754;
 }
 
 @keyframes blink {
@@ -113,7 +113,7 @@ div.word {
    display: none;
    width: 2px;
    height: 1.6rem;
-   background: var(--primaryColor);
+   background: var(--main-color);
    position: fixed;
    top: 198px;
    left: 18px;
