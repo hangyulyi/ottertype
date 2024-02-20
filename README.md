@@ -7,3 +7,4 @@ Typing game replica of [monkeytype](https://monkeytype.com) with a better, cuter
 - Cursor blinker too fast
 - Add more list of words
 - add styling to select tag
+- convert old website using next.js framework
