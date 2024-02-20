@@ -5,8 +5,9 @@
 :root {
   --bg-color: #323437;
   --text-color: #d1d0c5;
-  --subtest-color: #646669;
+  --subtext-color: #646669;
   --main-color: #e2b714;
+  background-color: var(--bg-color);
 }
 
 @keyframes cursor {
