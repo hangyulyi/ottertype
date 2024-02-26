@@ -8,3 +8,4 @@ Typing game replica of [monkeytype](https://monkeytype.com) with a better, cuter
 - Add more list of words
 - add styling to select tag
 - convert old website using next.js framework
+  - organize components needed for the transition
