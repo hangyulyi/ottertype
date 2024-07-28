@@ -1,6 +1,8 @@
 import { TbMailFilled } from "react-icons/tb";
 import { LuCode2 } from "react-icons/lu";
 
+// TODO: link contact page with maybe contact page on portfolio site
+
 const Footer = () => {
     return (
         <footer className="text-sub-color py-4">
