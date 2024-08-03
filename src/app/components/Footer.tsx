@@ -5,7 +5,7 @@ import { LuCode2 } from "react-icons/lu";
 
 const Footer = () => {
     return (
-        <footer className="text-sub-color py-4">
+        <footer className="text-sub-color py-4 w-full">
             <div className="container mx-auto flex justify-start space-x-4">
 
                 <a

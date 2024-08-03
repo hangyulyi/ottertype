@@ -8,10 +8,12 @@ const jost = Jost({
 
 const Header = () => {
     return (
-        <header className="p-10 flex">
-            <Image src={`/pixelotter.png`} alt="Logo" width={50} height={50} />
-            <h1 className={`${jost.className} font-logo text-text-color text-4xl tracking-wide font-medium`}>ottertype</h1>
-        </header>
+        <div className="py-10 px-12">
+            <header className="flex cursor-pointer">
+                <Image src={`/pixelotter.png`} alt="Logo" width={50} height={50} />
+                <h1 className={`${jost.className} font-logo text-text-color text-4xl tracking-wide font-medium`}>ottertype</h1>
+            </header>
+        </div>
     )
 }
 
