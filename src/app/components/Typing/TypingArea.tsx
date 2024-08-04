@@ -51,7 +51,7 @@ const TypingArea: React.FC<TypingAreaProps> = ({ targetText }) => {
     }
 
     return (
-        <div>
+        <div className='px-8'>
             <div>
                 <div className='text-2xl text-main-color'>{timer}</div>
                 <TextDisplay targetText={targetText} userInput={userInput} />
