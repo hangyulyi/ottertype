@@ -29,7 +29,7 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput }) => {
     }
 
     return (
-        <div className='text-2xl'>
+        <div className='text-3xl text-left leading-relaxed'>
             {renderText()}
         </div>
     )

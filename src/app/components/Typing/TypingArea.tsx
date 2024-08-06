@@ -79,8 +79,8 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
     }
 
     return (
-        <div className='px-8' onClick={handleClick}>
-            <div>
+        <div className='px-8 flex items-center justify-center' onClick={handleClick}>
+            <div className='text-left w-[1200px]'>
                 <div className='text-2xl text-main-color'>{timer}</div>
                 {lines.map((line, index) => (
                     <TextDisplay key={index} targetText={line} userInput={index === 0 ? userInput : ''} />
