@@ -4,7 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import TextDisplay from './TextDisplay';
 
-interface TypingAreaProps {}
+interface TypingAreaProps {
+}
 
 const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
     const [userInput, setUserInput] = useState('');

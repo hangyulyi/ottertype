@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 const font = Roboto_Mono({ subsets: ["latin"] });
-const nunito_sans = Nunito_Sans({ subsets: ["latin"], weight: '500' })
+// const nunito_sans = Nunito_Sans({ subsets: ["latin"], weight: '500' })
 
 export const metadata: Metadata = {
   title: "ottertype",
@@ -21,9 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.className} flex flex-col min-h-screen`}>
         <Header />
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
+        
         <Footer />
       </body>
 
