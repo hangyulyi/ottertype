@@ -1,11 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 interface TextDisplayProps {
     targetText: string;
     userInput: string;
+    onCountsChange: (correctChars: number, correctWords: number) => void;
 }
 
-const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput }) => {
+const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput, onCountsChange }) => {
+    useEffect(() => {
+        const correctChars = countCorrectChars(targetText, userInput);
+        const correctWords = countCorrectWords(targetText, userInput);
+        onCountsChange(correctChars, correctWords);
+    }, [targetText, userInput])
+
+    const countCorrectChars = (target: string, input: string) => {
+        let count = 0;
+        for (let i = 0; i < input.length; i++) {
+            if (input[i] === target[i]){
+                count++
+            } else {
+                break;
+            }
+        }
+        return count;
+    }
+
+    const countCorrectWords = (target: string, input: string) => {
+        const targetWords = target.split(' ');
+        const inputWords = input.split(' ');
+        let count = 0;
+        for (let i = 0; i < inputWords.length; i++) {
+            if (inputWords[i] === targetWords[i]) {
+                count++
+            } else {
+                break
+            }
+        }
+        return count;
+    }
+    
     const renderText = () => {
         const inputLength = userInput.length;
         const correctInput = targetText.substring(0, inputLength);
