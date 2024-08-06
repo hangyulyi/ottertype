@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
+import { GrPowerReset } from "react-icons/gr";
+
 import TextDisplay from './TextDisplay';
 
 interface TypingAreaProps {
@@ -14,6 +16,8 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
     const [timer, setTimer] = useState(30);
     const [isActive, setIsActive] = useState(false);
     const [showCursor, setShowCursor] = useState(false);
+    const [correctChars, setCorrectChars] = useState(0)
+    const [correctWords, setCorrectWords] = useState(0)
     const inputRef = useRef<HTMLInputElement>(null);
 
     const MAX_CHARS = 64;
@@ -75,18 +79,53 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
 
         // disable input when timer ends
         if (timer === 0) return;
+
+        // esc key can also reset
+        if (e.key === 'Escape') {
+            reset()
+            return;
+        }
     }
 
     const handleClick = () => {
         inputRef.current?.focus()
     }
 
+    const handleCountsChange = (correctChars: number, correctWords: number) => {
+        setCorrectChars(correctChars)
+        setCorrectWords(correctWords)
+    }
+
+    const calculateCPM = () => {
+        return (correctChars);
+    }
+
+    const calculateWPM = () => {
+        return (correctWords / 5) * 60
+    }
+
+    const reset = () => {
+        setUserInput('')
+        setTimer(30)
+        setIsActive(false)
+        setCorrectChars(0)
+        setCorrectWords(0)
+        if (words.length > 0) {
+            setLines(generateRandomLines(words, 3, MAX_CHARS))
+        }
+    }
+
     return (
-        <div className='px-8 flex items-center justify-center' onClick={handleClick}>
+        <div className='px-8 flex flex-col items-center' onClick={handleClick}>
             <div className='text-left w-[1200px]'>
                 <div className='text-2xl text-main-color'>{timer}</div>
                 {lines.map((line, index) => (
-                    <TextDisplay key={index} targetText={line} userInput={index === 0 ? userInput : ''} />
+                    <TextDisplay 
+                        key={index} 
+                        targetText={line} 
+                        userInput={index === 0 ? userInput : ''} 
+                        onCountsChange={handleCountsChange}
+                    />
                 ))}
                 <input 
                     ref={inputRef}
@@ -98,9 +137,22 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
                     style={{ outline: 'none' }}
                     disabled={timer === 0}
                 />
-                {timer === 0 && (
-                    <div>time over</div>
-                )}
+
+                {/* Correct CPM, WPM not correctly calculated */}
+                {/* {timer === 0 && (
+                    <div>CPM: {calculateCPM()} <br></br>
+                        WPM: {calculateWPM()}
+                    </div>
+                )} */}
+
+                
+            </div>
+            <div className='text-sub-color mt-4 py-10'>
+                <GrPowerReset 
+                    onClick={reset}
+                    className='hover:text-text-color cursor-pointer'
+                    size={22}
+                />
             </div>
         </div>
     )
