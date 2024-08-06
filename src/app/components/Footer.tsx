@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="container mx-auto flex justify-start space-x-4">
 
                 <a
-                    href="https://github.com/hangyulyi/ottertype"
+                    href="https://www.linkedin.com/in/yihangyul/"
                     className="flex items-center space-x-1 hover:text-text-color"
                 >
                     <TbMailFilled />
