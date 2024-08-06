@@ -72,6 +72,9 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
                 generateRandomLine(words, MAX_CHARS)
             ])
         }
+
+        // disable input when timer ends
+        if (timer === 0) return;
     }
 
     const handleClick = () => {
@@ -93,6 +96,7 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
                     onKeyDown={handleKeyDown}
                     className='absolute opacity-0'
                     style={{ outline: 'none' }}
+                    disabled={timer === 0}
                 />
                 {timer === 0 && (
                     <div>time over</div>
