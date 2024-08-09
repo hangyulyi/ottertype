@@ -124,6 +124,7 @@ const TypingArea: React.FC<TypingAreaProps> = ({ }) => {
                         key={index} 
                         targetText={line} 
                         userInput={index === 0 ? userInput : ''} 
+                        showCursor={index === 0 ? showCursor : false}
                         onCountsChange={handleCountsChange}
                     />
                 ))}

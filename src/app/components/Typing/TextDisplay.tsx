@@ -4,9 +4,10 @@ interface TextDisplayProps {
     targetText: string;
     userInput: string;
     onCountsChange: (correctChars: number, correctWords: number) => void;
+    showCursor: boolean;
 }
 
-const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput, onCountsChange }) => {
+const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput, onCountsChange, showCursor }) => {
     useEffect(() => {
         const correctChars = countCorrectChars(targetText, userInput);
         const correctWords = countCorrectWords(targetText, userInput);
@@ -46,6 +47,7 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput, onCoun
 
         return (
             <>
+                
                 {correctInput.split('').map((char, index) => (
                     <span
                         key={index}
@@ -56,6 +58,7 @@ const TextDisplay: React.FC<TextDisplayProps> = ({ targetText, userInput, onCoun
                         {char}
                     </span>
                 ))}
+                
                 <span className='text-sub-color'>{remainingText}</span>
             </>
         )

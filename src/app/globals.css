@@ -42,3 +42,19 @@ body,
     text-wrap: balance;
   }
 }
+
+.blinking-cursor {
+  display: inline-block;
+  width: 3px;
+  color: var(--caret-color);
+  animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+  }
+}
